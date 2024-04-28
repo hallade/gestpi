@@ -1,0 +1,93 @@
+{% extends 'base/main_administrateur.html' %}
+{% block contenu %}
+
+<!------------------->
+<div class="container-fluid py-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card my-4">
+                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 my-4">
+                    <div class="bg-gradient-primary shadow-primary border-radius-lg py-1">
+                        <h6 class="text-white text-uppercase text-center align-middle ps-3">Formulaire de modification : Direction</h6>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center align-middle">
+                    <form method="POST" action="" class="mx-3">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="row my-2">
+                                <div class="col"><label>Ville</label></div>
+                                <div class="col">{{form.RefVille}}</div>                              
+                            </div>
+                            <div class="row my-2">
+                                <div class="col"><label>Localisation</label></div>
+                                <div class="col">{{form.RefLocalisation}}</div>                              
+                            </div>
+                            <div class="row my-2">
+                                <div class="col"><label>Détail</label></div>
+                                <div class="col">{{form.Detail}}</div>                              
+                            </div>
+                            <div class="row my-2">
+                                <div class="col"><label>Catégorie</label></div>
+                                <div class="col">{{form.RefCategorie}}</div>                              
+                            </div>
+                            <div class="row my-2">
+                                <div class="col"><label>Direction</label></div>
+                                <div class="col">{{form.LibDirection}}</div>                              
+                            </div>
+                            <div class="row my-2">
+                                <div class="col"><label>SIGLE</label></div>
+                                <div class="col">{{form.LibAbbDirection}}</div>                              
+                            </div>
+                            <div class="row my-2">
+                                <div class="col"><label>Responsable</label></div>
+                                <div class="col">{{form.Responsable}}</div>                              
+                            </div>
+                            <div class="row my-2">
+                                <div class="col"><label>N° Téléphone</label></div>
+                                <div class="col">{{form.Telephone}}</div>                              
+                            </div>
+                            <div class="row my-2">
+                                <div class="col"><label>Email</label></div>
+                                <div class="col">{{form.Email}}</div>                              
+                            </div>
+                            
+                            <div class="row my-2">
+                                <div class="col"><label>Total personnel</label></div>
+                                <div class="col">{{form.TotalEmploye}}</div>                              
+                            </div>
+                            <div class="row my-2">
+                                <div class="col"><label>Besoins</label></div>
+                                <div class="col">{{form.Besoins}}</div>                              
+                            </div>
+                            
+                            <div class="row mt-5">
+                                <div class="col">
+                                    <input class="btn btn-dark btn-sm" type="submit" name="Enregistrer" value="Enregistrer">
+
+                                </div>
+                                <div class="col">
+                                    <a class="btn btn-outline-danger  btn-sm" href="{% url 'direction' %}">Annuler</a>
+                                    
+                                </div>                            
+                            </div>                           
+                        </div>                       
+                    </form>                      
+                </div>   
+                
+                
+            </div>
+        </div>
+
+    </div>  
+   
+</div>
+
+
+<!---fin insertion-->
+
+
+
+
+
+{% endblock %}

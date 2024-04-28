@@ -1,0 +1,115 @@
+{% extends 'base/main_administrateur.html' %}
+{% block contenu %}
+
+<!------------------->
+<div class="container-fluid py-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card my-4">
+                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 my-4">
+                    <div class="bg-gradient-primary shadow-primary border-radius-lg py-1">
+                        <h6 class="text-white text-uppercase text-center align-middle ps-3">Table des villes</h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mx-3">
+                        <h6 class="">Effectuez une recherche</h6>
+                        <hr>
+                        <div class="d-flex justify-content-center">
+                            <form method="get" class="form">
+                                {% csrf_token %}
+                                <div class="row">  
+                                    
+                                    <div class="col-md mb-2">
+                                        <div class="col-md-1"><label>Région </label></div>
+                                        <div class="col-md">{{myFilter.form.RefRegion}} </label></div>
+                                    </div>
+                                    <div class="col-md mb-2">
+                                        <div class="col-md-1"><label>Ville </label></div>
+                                        <div class="col-md">{{myFilter.form.LibVille}} </label></div>
+                                    </div>
+                                    <div class="col-md mt-4">                                                                  
+                                        <button class="btn btn-sm btn-dark" type="submit">Rechercher</button>                                                              
+                                    </div>
+                                    <div class="col-md mt-4">                                   
+                                        <a class="btn  btn-sm btn-outline-dark" href="{% url 'ville' %}" >Réinitialiser</a>                                                                 
+                                    </div>  
+                                    
+                                </div>                                                      
+                            </form>
+
+                        </div>
+                        
+                    </div>              
+                </div>
+
+
+                <div class="card-body px-0 pb-2">                                                   
+                    <div class="table-responsive p-3">                        
+                        <table class="table table-striped table-hover align-items-center mb-0" data-pagination="true">
+                            <thead class="">
+                                <tr class="">
+                                    <th class="text-center text-uppercase th-lg" style="background-color:d8a025;color: #000;" scope="col">Région</th>
+                                    <th class="text-center text-uppercase th-lg" style="background-color:d8a025;color: #000;" scope="col">Ville</th>
+                                    <th colspan="2" class="text-center th-lg" scope="col"><a class="link-dark" href="{% url 'ajout_ville' %}"><i class="fas fa-plus mx-2"></i>Ajouter</a></th>                                                                 
+                                </tr>
+                            </thead>
+                            <tbody class="table-group-divider">
+                                {% for ville in page_obj %}
+                                        <tr>  
+                                            <td class="">{{ville.RefRegion | upper }}</td> 
+                                            <td class="">{{ville.LibVille | upper }}</td>  
+                                            <td class="col-md-1 align-middle text-center"><a class="link-success" href="{% url 'modifie_ville' ville.id %}"><i class="fa fa-pencil mx-2"></i>Modifier</a></td>
+                                            <td class="col-md-1 align-middle text-center"><a class="link-danger" href="{% url 'supprime_ville' ville.id %}"><i class="fas fa-trash-alt mx-2"></i>Supprimer </a></td>                                                                                                                                                                                                                                                                                                 
+                                        </tr>
+                                {% endfor%}   
+                            </tbody>
+                            <tfoot class="">  
+                                <td colspan="4"></td>
+                                      
+                            </tfoot> 
+
+                        </table>
+
+                        <!-- Affichage des liens de pagination -->
+                            <div class="pagination">
+                                <span class="step-links">
+                                    {% if page_obj.has_previous %}
+                                        <a href="?page=1">&laquo; Première</a>
+                                        <a href="?page={{ page_obj.previous_page_number }}">Précédente</a>
+                                    {% endif %}
+                                    
+                                    <span class="current">
+                                        Page {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+                                    </span>
+                                    
+                                    {% if page_obj.has_next %}
+                                        <a href="?page={{ page_obj.next_page_number }}">Suivante</a>
+                                        <a href="?page={{ page_obj.paginator.num_pages }}">Dernière &raquo;</a>
+                                    {% endif %}
+                                </span>
+                            </div>
+                        <!-- Affichage des liens de pagination -->
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </div>  
+   
+</div>
+
+
+<!---fin insertion-->
+
+
+
+
+
+{% endblock %}

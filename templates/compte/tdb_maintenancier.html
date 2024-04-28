@@ -1,0 +1,93 @@
+{% extends 'base/main_maintenancier.html' %}
+{% block contenu %}
+
+<!------------------->
+
+<div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <div class="card">
+          <div class="card-header p-3 pt-2">
+            <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+              <i class="material-icons opacity-10">weekend</i>
+            </div>
+            <div class="text-end pt-1">
+              <p class="text-sm mb-0 text-capitalize">Total matériel</p>
+              <h4 class="mb-0"> {{totmateriel}}</h4>
+            </div>
+          </div>
+          <hr class="dark horizontal my-0">
+          <div class="card-footer text-center p-3">
+            <p class="mb-0"><span class="text-dark text-sm font-weight-bolder"><script>
+              document.write(new Date().toLocaleDateString())
+            </script></span></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <div class="card">
+          <div class="card-header p-3 pt-2">
+            <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
+              <i class="material-icons opacity-10">person</i>
+            </div>
+            <div class="text-end pt-1">
+              <p class="text-sm mb-0 text-capitalize">Bon état</p>
+              <h4 class="mb-0">{{totokmateriel}}</h4>
+            </div>
+          </div>
+          <hr class="dark horizontal my-0">
+          <div class="card-footer text-center p-3">
+            <p class="mb-0"><span class="text-success text-sm font-weight-bolder"><a href="">Aperçu</a></span></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <div class="card">
+          <div class="card-header p-3 pt-2">
+            <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
+              <i class="material-icons opacity-10">person</i>
+            </div>
+            <div class="text-end pt-1">
+              <p class="text-sm mb-0 text-capitalize">En traitement</p>
+              <h4 class="mb-0">{{tottraitmateriel}}</h4>
+            </div>
+          </div>
+          <hr class="dark horizontal my-0">
+          <div class="card-footer text-center  p-3">
+            <p class="mb-0"><span class="text-danger text-sm font-weight-bolder"><a href="">Aperçu</a></span></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6">
+        <div class="card">
+          <div class="card-header p-3 pt-2">
+            <div class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
+              <i class="material-icons opacity-10">weekend</i>
+            </div>
+            <div class="text-end pt-1">
+              <p class="text-sm mb-0 text-capitalize">Défectueux</p>
+              <h4 class="mb-0">{{totdefectmateriel}}</h4>
+            </div>
+          </div>
+          <hr class="dark horizontal my-0">
+          <div class="card-footer text-center p-3">
+            <p class="mb-0"><span class="text-success text-sm font-weight-bolder"><a href="">Matéiel(s) défectueux</a></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+   <!-------footer-->
+
+   
+
+   <!--fin footer-->
+</div>
+
+
+<!---fin insertion-->
+
+
+
+
+
+{% endblock %}
