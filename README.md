@@ -1,5 +1,5 @@
 // Actions for the Database
-Create an empty database called "bd_gestpi" with UT8. Username : root / Password :""
+Create an empty MYSQL database called "bd_gestpi" with UT8. Username : root / Password :""
 Execute the sql instructions in the file "bd_gestpi.sql" to fill the database
 
 //Actions for project
